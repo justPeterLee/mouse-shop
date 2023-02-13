@@ -1,6 +1,6 @@
-import styles from './Feature.module.css'
+import styles from './MainFeature.module.css'
 
-export default function FeatureModule(){
+export default function MainFeatureModule(){
     return(
         <div className={styles.container}>
             <h1>Module 1</h1>
