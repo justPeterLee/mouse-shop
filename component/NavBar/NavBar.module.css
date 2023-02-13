@@ -1,0 +1,44 @@
+.navbar, .scrollUp, .scrollDown {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 5rem;
+  background: rgb(250, 250, 255);
+  color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3rem;
+  transition: all 300ms ease;
+  z-index: 10;
+}
+
+.staticNavBar{
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+
+  padding: 2rem 5rem;
+  background: transparent;
+  color: black;
+  height: 3rem;
+  width: 85vw;
+
+
+}
+
+.scrollUp{
+  transform: translateY(0)
+}
+
+.scrollDown{
+  transform: translateY(-100%);
+}
+
+.scrollGone{
+  transform: translateY(0)
+}
+
+.hidden{
+  display: none;
+}
