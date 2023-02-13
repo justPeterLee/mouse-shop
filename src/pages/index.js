@@ -1,12 +1,12 @@
+import FeatureModule from "component/HomePage/Feature/Feature";
+import SlideShow from "component/HomePage/SlideShow/SlideShow";
+import styles from '../styles/Home.module.css'
  
  export default function HomePage(){
   return(
-    <div style={{height: "1000rem"}}>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
+    <div className={styles.container}>
+      <FeatureModule/>
+      <SlideShow/>
     </div>
   )
  }
