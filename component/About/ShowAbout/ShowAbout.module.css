@@ -1,0 +1,14 @@
+.subShow{
+    display: flex;
+    gap: 1rem
+}
+
+.subItem{
+    width: 30rem;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

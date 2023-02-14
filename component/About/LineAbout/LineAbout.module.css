@@ -1,0 +1,10 @@
+.sideAbout {
+  width: 90rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -48,11 +48,13 @@
 }
 
 .tabs{
-
+  display: flex;
+  gap: 2rem;
 }
 
 .user{
-
+  display: flex;
+  gap: 1rem;
 }
 
 .cart{

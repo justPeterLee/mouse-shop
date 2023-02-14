@@ -1,0 +1,21 @@
+
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: aliceblue;
+}
+.mainText{
+    text-align: center;
+}
+
+.subShow{
+    display: flex;
+    gap: 1rem
+}
+
+.subItem{
+    width: 30rem;
+}

@@ -1,0 +1,36 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formContainer{
+    padding: 2rem;
+    display:flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    gap: 2rem
+}
+
+.name, .email, .subject{
+    height:2.5rem
+}
+.name, .email{
+    width: 15.2rem
+}
+.name{
+    margin-right: 2rem;
+}
+.subject{
+    width: 33rem;
+}
+.comment{
+    resize: none;
+}
+.formButton{
+    height: 2.5rem;
+    width: 6rem;
+}

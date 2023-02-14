@@ -18,7 +18,7 @@ export default function NavBar(props) {
         nav.current.classList.remove(styles.scrollDown);
       }
     } else {
-      if (currentScroll < 6) {
+      if (currentScroll < 6 && nav.current.classList) {
         nav.current.classList.add(styles.hidden);
       }
       nav.current.classList.remove(styles.scrollUp);
@@ -33,7 +33,9 @@ export default function NavBar(props) {
   return (
     <Fragment>
       <header ref={nav} className={`${styles.navbar} ${styles.hidden}`}>
-        <div className={styles.logo}>Logo</div>
+        <Link href="/">
+          <div className={styles.logo}>Logo</div>
+        </Link>
 
         <div className={styles.tabs}>
           <Link href="/shop">Shop</Link>
@@ -45,7 +47,6 @@ export default function NavBar(props) {
           <Link href="/sign-up">Sign up</Link>
           <Link href="/cart">cart</Link>
         </div>
-        
       </header>
       <main>{props.children}</main>
     </Fragment>

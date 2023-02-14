@@ -2,7 +2,7 @@ import styles from "./MainFeature.module.css";
 
 export default function MainFeatureModule() {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} top-module`}>
       <button className={styles.shopButton}>shop</button>
       <div className={styles.description}>
         <p>
