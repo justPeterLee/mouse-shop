@@ -1,3 +1,4 @@
 .container{
-  height: 100rem;
+  display: flex;
+  flex-direction: column;
 }

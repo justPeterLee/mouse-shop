@@ -7,8 +7,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 3rem;
+  width: 90vw;
+  height: 2rem;
   transition: all 300ms ease;
   z-index: 10;
 }
@@ -21,8 +21,8 @@
   padding: 2rem 5rem;
   background: transparent;
   color: black;
-  height: 3rem;
-  width: 85vw;
+  height: 2rem;
+  width: 90vw;
 
 
 }
@@ -42,3 +42,20 @@
 .hidden{
   display: none;
 }
+
+.logo{
+
+}
+
+.tabs{
+
+}
+
+.user{
+
+}
+
+.cart{
+
+}
+
