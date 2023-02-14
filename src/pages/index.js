@@ -9,8 +9,8 @@ import styles from '../styles/Home.module.css'
     <div className={styles.container}>
       <MainFeatureModule/>
       <SlideShow/>
-      <SideFeature backgroundColor={'rgb(150, 150, 150)'}/>
-      <SideFeature backgroundColor={'rgb(240, 240, 220)'}/>
+      <SideFeature backgroundColor={'rgb(150, 150, 150)'} right={true}/>
+      <SideFeature backgroundColor={'rgb(220, 230, 245)'} right={false}/>
       <AboutModule/>
     </div>
   )

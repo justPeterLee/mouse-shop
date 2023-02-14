@@ -1,11 +1,18 @@
-import styles from './MainFeature.module.css'
+import styles from "./MainFeature.module.css";
 
-export default function MainFeatureModule(){
-    return(
-        <div className={styles.container}>
-            <h1>Module 1</h1>
-        </div>
-        
-    )
+export default function MainFeatureModule() {
+  return (
+    <div className={styles.container}>
+      <button className={styles.shopButton}>shop</button>
+      <div className={styles.description}>
+        <p>
+          さまざまな境遇から、母の日を心から祝えない。
+          そんな人たちがいることも知っています。 ごめんなさい。それでも、
+          たった一度だけ伝えたいのです。さまざまな境遇から、母の日を心から祝えない。
+          そんな人たちがいることも知っています。 ごめんなさい。それでも、
+          たった一度だけ伝えたいのです。さまざまな境遇から、母の日を心から祝えない。
+        </p>
+      </div>
+    </div>
+  );
 }
-

@@ -2,5 +2,18 @@
     margin: 0;
     padding: 0;
     height: 25rem;
-    background-color: rgb(252, 252, 255);
+    background-color: rgb(245, 245, 240);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 3rem
+}
+
+.item{
+    height: 20rem;
+    width: 25rem;
+
+    background-color: rgb(75, 75, 75);
 }
