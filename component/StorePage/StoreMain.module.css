@@ -1,0 +1,20 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.filterContainer{
+    background-color: rgb(125,125,125);
+
+    width: 20rem;
+    height: 10rem;
+}
+
+.itemContainer{
+    background-color: rgb(150,150,100);
+    width: 60%;
+    height: 10rem;
+
+}

@@ -33,9 +33,12 @@ export default function NavBar(props) {
   return (
     <Fragment>
       <header ref={nav} className={`${styles.navbar} ${styles.hidden}`}>
+
+        <div className={styles.logo}>
         <Link href="/">
-          <div className={styles.logo}>Logo</div>
+          <div className={styles.logo_item}>Logo</div>
         </Link>
+        </div>
 
         <div className={styles.tabs}>
           <Link href="/shop">Shop</Link>

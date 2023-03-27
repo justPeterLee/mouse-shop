@@ -5,9 +5,11 @@ export default function StaticNavBar(props) {
   return (
     <Fragment>
       <header className={styles.staticNavBar}>
-        <Link href="/">
-          <div className={styles.logo}>Logo</div>
-        </Link>
+        <div className={styles.logo}>
+          <Link href="/">
+            <div className={styles.logo_item}>Logo</div>
+          </Link>
+        </div>
 
         <div className={styles.tabs}>
           <Link href="/shop">Shop</Link>

@@ -1,15 +1,16 @@
 .navbar, .scrollUp, .scrollDown {
   display: flex;
   justify-content: space-between;
-  padding: 2rem 5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   background: rgb(250, 250, 255);
   color: black;
   position: fixed;
   top: 0;
   left: 0;
-  width: 90vw;
+  width: 100%;
   height: 2rem;
-  transition: all 300ms ease;
+  transition: transform 300ms ease;
   z-index: 10;
 }
 
@@ -18,11 +19,14 @@
   display: flex;
   justify-content: space-between;
 
-  padding: 2rem 5rem;
   background: transparent;
   color: black;
+
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  
   height: 2rem;
-  width: 90vw;
+  width: 100%;
 
 
 }
@@ -44,20 +48,30 @@
 }
 
 .logo{
+  width: 33%;
+  padding-left: 5rem;
 
 }
 
 .tabs{
+  width: 33%;
   display: flex;
+  justify-content: center;
   gap: 2rem;
 }
 
 .user{
+  width: 33%;
   display: flex;
   gap: 1rem;
+  justify-content: flex-end;
+  padding-right: 5rem;
 }
 
 .cart{
 
 }
 
+.logo_static{
+  width: 33%;
+}
