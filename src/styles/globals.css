@@ -1,9 +1,33 @@
+/*-------------------------------------------------------------------------------- 
+font family  
+--------------------------------------------------------------------------------*/
+@font-face {
+  font-family: openSans;
+  src: url('../../public/font/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf');
+}
+
+@font-face{
+  font-family: openSansLight;
+  src: url('../../public/font/Open_Sans/static/OpenSans/OpenSans-Light.ttf');
+}
+
+@font-face {
+  font-family: openSansSemiBold;
+  src: url('../../public/font/Open_Sans/static/OpenSans/OpenSans-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: openSansBold;
+  src: url('../../public/font/Open_Sans/static/OpenSans/OpenSans-Bold.ttf');
+}
+
 body{
   margin: 0;
   padding: 0;
   width: 100%;
   background-color: rgb(245, 245, 240);
 
+  font-family: openSans;
 }
 
 .top-module{
