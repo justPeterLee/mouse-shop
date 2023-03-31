@@ -2,11 +2,11 @@ import { encryptPassword, comparePassword } from "lib/encrypt";
 import prisma from "lib/db";
 async function handler(req, res) {
   const data = req.body;
-  const { username, password } = data;
+  const { first, last, email , password } = data;
 
   const hashedPassword = await encryptPassword(password);
 
-  await signIn(username, hashedPassword)
+  await signIn(first, last, email, hashedPassword)
     .then(async () => {
       await prisma.$disconnect();
       res.statusCode = 200;
@@ -19,27 +19,29 @@ async function handler(req, res) {
     });
 }
 
-async function signIn(username, password) {
-  await isUnique(username);
+async function signIn(first, last, email, password) {
+  await isUnique(email);
   //   await prisma.$connect();
   await prisma.user.create({
     data: {
-      username: username,
+      user_name: first,
+      user_last: last,
+      email: email,
       password: password,
     },
   });
 }
 
-async function isUnique(username) {
+async function isUnique(email) {
   const allUsers = await prisma.user.findFirst({
     where: {
-      username: username,
+      email: email,
     },
   });
   //  console.log(allUsers);
 
   if (allUsers) {
-    console.log(allUsers);
+    //throw error
   } else {
     console.log("no user");
   }

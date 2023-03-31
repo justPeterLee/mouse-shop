@@ -24,7 +24,7 @@ export const authOptions = {
         // if false throw error (not authorized)
         const isUser = await prisma.user.findFirst({
           where: {
-            username: credentials.username,
+            email: credentials.email,
           },
         });
 

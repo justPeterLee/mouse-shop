@@ -6,8 +6,8 @@ import Link from "next/link";
 
 export default function LoginForum() {
 
-  const [usernameIn, setUsernameIn] = useState("");
-  const [passwordIn, setPasswordIn] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const { data: session, stauts } = useSession();
 
 
@@ -16,8 +16,8 @@ export default function LoginForum() {
         console.log('running')
       const result = await signIn("credentials", {
         redirect: false,
-        username: usernameIn,
-        password: passwordIn,
+        email: email,
+        password: password,
       });
       console.log(result);
     } catch (err) {
@@ -28,12 +28,12 @@ export default function LoginForum() {
   return (
     <div className={styles.login_body}>
       <div>
-        <label>username</label>
+        <label className="loginForum">email</label>
         <input
           type="text"
-          value={usernameIn}
+          value={email}
           onChange={(e) => {
-            setUsernameIn(e.target.value);
+            setEmail(e.target.value);
           }}
         />
       </div>
@@ -42,9 +42,9 @@ export default function LoginForum() {
         <label>password</label>
         <input
           type="text"
-          value={passwordIn}
+          value={password}
           onChange={(e) => {
-            setPasswordIn(e.target.value);
+            setPassword(e.target.value);
           }}
         />
       </div>
