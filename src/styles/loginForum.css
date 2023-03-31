@@ -1,13 +1,54 @@
-.login-forum{
-    /* common style */
-    height: 2rem;
-    width: 25rem;
-}
-.login-button{
-    /* common style */
-    height: 2rem;
-    width: 25rem;
+.login-forum {
+  /* common style */
+  height: 3rem;
+  width: 25rem;
+  font-family: openSansLight;
+  
+  border: none;
 
-    border: none;
-    background-color: rgb(200,200,200);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  font-size: 16px;
+  color: rgb(100,100,100);
+  padding-left: 1rem;
+
+}
+
+.login-forum:focus {
+  outline: none;
+  background-color: rgb(245, 245, 255);
+}
+.login-forum::placeholder{
+    color: rgb(180,180,180)
+}
+.login-button {
+  /* common style */
+  height: 2.5rem;
+  width: 28rem;
+
+  border: none;
+  background-color: rgb(200, 200, 200);
+}
+.login-label-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-right: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  width: 3rem;
+  background-color: rgb(245, 245, 245);
+}
+
+.login-input-container {
+  display: flex;
+  gap: 0;
+  border-radius: 5px;
+  border: solid 1px rgb(230,230,230)
+}
+
+.login-button-switch:link{
+    text-decoration: none;
 }

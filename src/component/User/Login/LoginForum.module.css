@@ -2,14 +2,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    height: 40rem;
 }
 .login_forum_container{
-    border: solid 1px black;
     width: 40rem;
-    height: 50rem;
+    height: 25rem;
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 1.5rem;
+
+    border-radius: 3px;
+    background-color: rgb(220,220,220);
+}
+
+.title_p{
+    font-family: openSansLight;
 }
