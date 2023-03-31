@@ -1,4 +1,4 @@
-import LoginForum from "@/component/User/Login/loginForum"
+import LoginForum from "@/component/User/Login/LoginForum"
 export default function login(){
     return(
         <div>
