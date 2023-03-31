@@ -1,3 +1,13 @@
-.loginForum{
-    color: red;
+.login-forum{
+    /* common style */
+    height: 2rem;
+    width: 25rem;
+}
+.login-button{
+    /* common style */
+    height: 2rem;
+    width: 25rem;
+
+    border: none;
+    background-color: rgb(200,200,200);
 }

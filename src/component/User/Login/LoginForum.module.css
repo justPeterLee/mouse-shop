@@ -1,1 +1,15 @@
-.login-body{}
+.login_body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login_forum_container{
+    border: solid 1px black;
+    width: 40rem;
+    height: 50rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
