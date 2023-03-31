@@ -47,7 +47,7 @@ export default function NavBar(props) {
         </div>
 
         <div className={styles.user}>
-          <Link href="/sign-up">Sign up</Link>
+          <Link href="/user/login">Sign up</Link>
           <Link href="/cart">cart</Link>
         </div>
       </header>

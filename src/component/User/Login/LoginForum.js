@@ -1,4 +1,4 @@
-import styles from 'LoginForum.module.css';
+import styles from './LoginForum.module.css';
 
 export default function LoginForum(){
     return(
