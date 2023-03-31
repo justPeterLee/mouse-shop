@@ -1,4 +1,4 @@
-import StoreMain from "component/StorePage/StoreMain";
+import StoreMain from "@/component/StorePage/StoreMain";
 
 export default function ShopAllPage(){
     return(
