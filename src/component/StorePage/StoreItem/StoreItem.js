@@ -2,7 +2,7 @@ import styles from "./StoreItem.module.css";
 
 export default function StoreItem() {
   return (
-    <div className={styles.body}>
+    <button className={styles.body}>
 
       <div className={styles.image}></div>
 
@@ -14,6 +14,6 @@ export default function StoreItem() {
         <p className={styles.price}>$25</p>
       </div>
 
-    </div>
+    </button>
   );
 }

@@ -3,11 +3,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 33%;
+    width: 100%;
     /* padding-top: 100%; 1:1 Aspect Ratio */
     background-color: antiquewhite;
+
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: start;
 }
 
+.body:hover{
+    cursor: pointer;
+}
 .image{
     width: 100%;
     padding-top: 80%; /* 1:1 Aspect Ratio */
@@ -20,6 +28,7 @@
     justify-content: space-between;
     width: 100%;
     font-family: openSansLight;
+    font-size: 17px;
 }
 
 .desc div{
@@ -29,6 +38,7 @@
 
 .desc p{
     margin: 0;
+
 }
 
 

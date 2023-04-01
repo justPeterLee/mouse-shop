@@ -15,4 +15,8 @@
     background-color: rgb(150,150,100);
     width: 60%;
 
+    display: grid;
+    grid-template-columns: repeat(3, 32.6%);
+    gap:1rem;
+
 }
