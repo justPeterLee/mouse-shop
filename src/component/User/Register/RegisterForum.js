@@ -1,4 +1,7 @@
 import styles from "./RegisterForum.module.css";
+import { BiFirstPage, BiLastPage } from "react-icons/bi";
+import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
+
 import { useState } from "react";
 import Link from "next/link";
 
@@ -26,6 +29,11 @@ export default function RegisterForum() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [iconStyleOne, setIconStyleOne] = useState({});
+  const [iconStyleTwo, setIconStyleTwo] = useState({});
+  const [iconStyleThree, setIconStyleThree] = useState({});
+  const [iconStyleFour, setIconStyleFour] = useState({});
+
   const handleSignUp = async () => {
     try {
       if (email.length && password.length) {
@@ -39,50 +47,114 @@ export default function RegisterForum() {
     }
   };
   return (
-    <div>
-        <div>
-        <label>First Name</label>
-        <input
-          type="text"
-          value={first}
-          onChange={(e) => {
-            setFirst(e.target.value);
-          }}
-        />
-      </div>
-      <div>
-        <label>Last Name</label>
-        <input
-          type="text"
-          value={last}
-          onChange={(e) => {
-            setLast(e.target.value);
-          }}
-        />
-      </div>
-      <div>
-        <label>email</label>
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-      </div>
-      <div>
-        <label>password</label>
-        <input
-          type="text"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-      </div>
-      <button onClick={handleSignUp}> sign up</button>
+    <div className={styles.register_body}>
+      <div className={styles.register_forum_container}>
+        <div className={"login-title-container"}>
+          <p className={`${styles.title_p} login-title-p`}>Create Account</p>
+        </div>
+        <div className={`${styles.email_container} login-input-container`}>
+          {/* <label>First Name</label> */}
+          <label
+            className={`${styles.login_label_icon} login-label-icon`}
+            style={iconStyleOne}
+          >
+            <BiFirstPage size={30} />
+          </label>
+          <input
+            className="login-forum"
+            type="text"
+            value={first}
+            onChange={(e) => {
+              setFirst(e.target.value);
+            }}
+            onFocus={()=>{
+              setIconStyleOne({backgroundColor: 'rgb(220,220,255)'})
+            }}
+            onBlur={()=>{
+              setIconStyleOne({})
+            }}
+            placeholder="first name"
+          />
+        </div>
+        <div className={`${styles.email_container} login-input-container`}>
+          {/* <label>Last Name</label> */}
+          <label
+            className={`${styles.login_label_icon} login-label-icon`}
+            style={iconStyleTwo}
+          >
+            <BiLastPage size={30} />
+          </label>
+          <input
+            className="login-forum"
+            type="text"
+            value={last}
+            onChange={(e) => {
+              setLast(e.target.value);
+            }}
+            onFocus={()=>{
+              setIconStyleTwo({backgroundColor: 'rgb(220,220,255)'})
+            }}
+            onBlur={()=>{
+              setIconStyleTwo({})
+            }}
+            placeholder="last name"
+          />
+        </div>
+        <div className={`${styles.email_container} login-input-container`}>
+          {/* <label>email</label> */}
+          <label
+            className={`${styles.login_label_icon} login-label-icon`}
+            style={iconStyleThree}
+          >
+            <AiOutlineMail size={30} />
+          </label>
+          <input
+            className="login-forum"
+            type="text"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            onFocus={()=>{
+              setIconStyleThree({backgroundColor: 'rgb(220,220,255)'})
+            }}
+            onBlur={()=>{
+              setIconStyleThree({})
+            }}
+            placeholder="email"
+          />
+        </div>
+        <div className={`${styles.email_container} login-input-container`}>
+          {/* <label>password</label> */}
+          <label
+            className={`${styles.login_label_icon} login-label-icon`}
+            style={iconStyleFour}
+          >
+            <AiOutlineLock size={30} />
+          </label>
+          <input
+            className="login-forum"
+            type="text"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            onFocus={()=>{
+              setIconStyleFour({backgroundColor: 'rgb(220,220,255)'})
+            }}
+            onBlur={()=>{
+              setIconStyleFour({})
+            }}
+            placeholder="password"
+          />
+        </div>
+        <button onClick={handleSignUp} className="login-button">
+          {" "}
+          sign up
+        </button>
 
-      <Link href="/user/login">Login</Link>
+        <Link href="/user/login"><p>have an account</p></Link>
+      </div>
     </div>
   );
 }

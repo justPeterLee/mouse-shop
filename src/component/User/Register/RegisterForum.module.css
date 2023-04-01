@@ -1,0 +1,25 @@
+.register_body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 40rem; 
+}
+
+.register_forum_container{
+    width: 40rem;
+    height: 35rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+
+    border-radius: 3px;
+    background-color: rgb(220,220,220);
+}
+
+.title_p{
+    font-family: openSansLight;
+}
