@@ -5,7 +5,7 @@
     align-items: center;
     width: 100%;
     /* padding-top: 100%; 1:1 Aspect Ratio */
-    background-color: antiquewhite;
+    background-color: transparent;
 
     border: none;
     padding: 0;
@@ -20,9 +20,11 @@
     width: 100%;
     padding-top: 80%; /* 1:1 Aspect Ratio */
 
-    background-color: aquamarine;
+    border: solid 1px rgb(175,175,175)
 }
-
+.title, .price{
+    font-size: 19px;
+}
 .desc{
     display: flex;
     justify-content: space-between;

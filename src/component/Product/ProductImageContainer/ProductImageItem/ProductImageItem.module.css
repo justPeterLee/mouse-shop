@@ -1,5 +1,5 @@
 .image{
     width: 100%;
     padding-top: 90%;
-    background-color: aquamarine;
+    border: solid 1px rgb(175,175,175);
 }
