@@ -1,0 +1,15 @@
+.pictureBody{
+    display: grid;
+    grid-template-columns: repeat(2, 33%);
+    grid-column-end: repeat(1,66%);
+    gap:.1%;
+
+    margin: 2%;
+}
+
+.footPicture{
+    width: 200.2%;
+    padding-top: 90%;
+    gap:none;
+    background-color: aquamarine;
+}
