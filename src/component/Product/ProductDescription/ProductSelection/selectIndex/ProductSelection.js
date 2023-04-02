@@ -1,7 +1,7 @@
 import styles from "./ProductSelection.module.css";
 import ProductSelectionContainer from "../ProductSelecctionContainer/ProductSelectionContainer";
 import ProductSelectionItem from "../ProductSelectionItem/ProductSelectionItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const selectionData = [
   {
     selectionId: 1,
@@ -55,9 +55,18 @@ const selectionData = [
 export default function ProductSelection(props) {
     const [selection, setSelection] = useState({});
 
-    const bringSelection = (data) => {
-
+    const onBringSelection = async (selectionData) => {
+      if(selectionData){
+        await setSelection({...selection,[selectionData.cat]:{
+          id: selectionData.selectionId,
+          selection: selectionData.selection
+        }})
+      }
     }
+
+    useEffect(()=>{
+      console.log(selection)
+    }, [selection])
 
   return (
     <div>
@@ -67,9 +76,11 @@ export default function ProductSelection(props) {
             key={selection.selectionId}
             cat={selection.selectionCat}
             items={selection.selectionItem}
+            onBringSelection={onBringSelection}
           />
         );
       })}
+      {selection.color && <p>{selection.color.selection}</p>}
     </div>
   );
 }
