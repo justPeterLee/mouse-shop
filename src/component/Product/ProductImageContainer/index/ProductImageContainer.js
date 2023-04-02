@@ -1,5 +1,5 @@
 import styles from './ProductImageContainer.module.css';
-import ProductImageItem from './ProductImageItem/ProductImageItem';
+import ProductImageItem from '../ProductImageItem/ProductImageItem';
 
 export default function ProductImageContainer(){
     return(

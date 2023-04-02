@@ -1,0 +1,5 @@
+.item_container{
+    display: grid;
+    grid-template-columns: repeat(3, 9.3rem);
+
+}

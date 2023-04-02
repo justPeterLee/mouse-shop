@@ -1,0 +1,18 @@
+.body{
+    margin-top: 6%;
+}
+.body p{
+    margin: 0;
+}
+
+.name p{
+    font-size: 28px;
+    /* letter-spacing: -.5px; */
+}
+.desc p{
+    margin-bottom: 25px;
+    color:rgb(125,125,125)
+}
+.price p{
+    font-size: 20px;
+}
