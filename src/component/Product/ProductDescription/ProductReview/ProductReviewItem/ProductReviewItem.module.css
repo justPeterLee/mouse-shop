@@ -1,0 +1,51 @@
+.hide{
+    overflow-wrap: break-word;
+    overflow: hidden;
+    position: relative;
+    height:66px;
+    margin:0;
+
+    font-family: openSansLight;
+}
+
+.show{
+    overflow-wrap: break-word;
+    margin:0;
+
+    font-family: openSansLight;
+}
+.dots{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 20px;
+    background-color: rgb(245,245,240);
+}
+
+
+.showComment{
+    border: none;
+    border-bottom: solid 1px black;
+    background-color: transparent;
+    font-size: 15px;
+    text-align: none;
+}
+.showComment:hover{
+    cursor: pointer;
+}
+.showComment p{
+    margin: 0;
+}
+
+
+.info{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}

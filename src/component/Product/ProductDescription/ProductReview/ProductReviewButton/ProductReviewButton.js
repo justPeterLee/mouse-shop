@@ -2,11 +2,11 @@ import styles from './ProductReviewButton.module.css';
 import {MdArrowDropDown} from 'react-icons/md';
 
 import { useState } from 'react';
-export default function ProductReviewButton(){
+export default function ProductReviewButton(props){
     const [toggle, setToggle] = useState(false)
-    const [arrowDir, setArrowDir] = useState('review-hide')
     const toggleComment = ()=>{
         setToggle(!toggle)
+        props.toggleComment(toggle)
     }
     return(
         <button className={styles.body} onClick={toggleComment} >
