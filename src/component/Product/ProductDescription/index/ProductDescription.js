@@ -1,11 +1,11 @@
-import styles from './ProductDescription.module.css';
-import ProductDescInfo from '../ProductDescInfo/ProductDescInfo';
-import ProductSelection from '../ProductSelection/selectIndex/ProductSelection';
-import ProductReview from '../ProductReview/reviewIndex/ProductReview';
-export default function ProductDescription(){
-    return(
-        <div className={styles.body}> 
-            {/* 
+import styles from "./ProductDescription.module.css";
+import ProductDescInfo from "../ProductDescInfo/ProductDescInfo";
+import ProductSelection from "../ProductSelection/selectIndex/ProductSelection";
+import ProductReview from "../ProductReview/reviewIndex/ProductReview";
+export default function ProductDescription() {
+  return (
+    <div className={styles.body}>
+      {/* 
                 name
                 price  
                 description
@@ -22,12 +22,15 @@ export default function ProductDescription(){
                 -------
                 reviews (stretch)
             */}
-            <ProductDescInfo/>
-            <ProductSelection/>
-            <button className={styles.cart_button}><p>Add to Cart</p></button>
+      <ProductDescInfo />
+      <ProductSelection />
+      <div className={styles.product_button}>
+        <button className={styles.cart_button}>
+          <p>Add to Cart</p>
+        </button>
+      </div>
 
-            
-            <ProductReview/>
-        </div>
-    )
+      <ProductReview />
+    </div>
+  );
 }

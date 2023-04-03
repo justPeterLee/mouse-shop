@@ -12,8 +12,8 @@ export default function ProductSelectionContainer(props) {
         console.log(selection)
       }, [selection])
   return (
-    <div>
-      <div>
+    <div className={styles.body}>
+      <div className={styles.selection_title}>
         <p>{props.cat} {selection && selection.selection}</p>
       </div>
       <div className={styles.item_container}>

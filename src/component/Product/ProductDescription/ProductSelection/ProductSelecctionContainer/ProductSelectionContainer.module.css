@@ -3,3 +3,11 @@
     grid-template-columns: repeat(3, 9.3rem);
 
 }
+.selection_title p{
+    font-size: 17px;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+}
