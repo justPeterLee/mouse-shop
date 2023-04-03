@@ -69,7 +69,7 @@ export default function ProductSelection(props) {
     }, [selection])
 
   return (
-    <div>
+    <div className={styles.body}>
       {selectionData.map((selection) => {
         return (
           <ProductSelectionContainer

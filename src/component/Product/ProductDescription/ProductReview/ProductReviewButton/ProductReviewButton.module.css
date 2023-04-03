@@ -1,0 +1,40 @@
+.body, .title, .info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.body{
+    border: none;
+    border-top: solid 1px rgb(200,200,200);
+    border-bottom: solid 1px rgb(200,200,200);
+    width: 27.9rem;
+    height: 5rem;
+    background-color: transparent;
+    justify-content: space-between;
+    transition: background-color ease .1s;
+}
+.body:hover{
+    cursor: pointer;
+    background-color: rgb(235, 235, 230);
+}
+
+.title{
+    padding-left: 1rem;
+}
+.info{
+    padding-right:1rem;
+}
+
+.title p{
+    font-size: 22px;
+    font-family: openSansLight;
+}
+
+.reviewArrow{
+    transition: transform ease .1s;
+}
+.show{
+    transform: rotate(180deg);
+}
