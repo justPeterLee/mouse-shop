@@ -1,5 +1,9 @@
+import Review from "@/component/Review/reviewIndex/Review"
+
 export default function cart(){
     return(
-        <div></div>
+        <div>
+            <Review/>
+        </div>
     )
 }

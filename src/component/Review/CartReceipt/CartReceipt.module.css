@@ -1,0 +1,51 @@
+.body{
+    height: 30rem;
+    width: 25rem
+}
+
+.body p{
+    margin:0;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.title{
+    font-family: openSansSemiBold;
+    font-size: 20px;
+    margin-bottom: 1rem;;
+}
+
+.subtotal, .shipping, .tax, .total{
+    display: flex;
+    justify-content: space-between;
+    font-family: openSansLight;
+}
+
+.total{
+    border-top: solid 1px rgb(200,200,200);
+    border-bottom: solid 1px rgb(200,200,200);
+    height: 3rem;
+    
+    align-items: center;
+}
+
+
+.checkoutButtons{
+    margin-top: 1.5rem;
+}
+
+.checkoutButtons button{
+    width: 25rem;
+    height: 2.5rem;
+
+    border-radius: 10px;
+
+    border: none;
+    background-color: rgb(100,100,100);
+
+    color: white
+}
