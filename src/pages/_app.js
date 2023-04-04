@@ -14,15 +14,15 @@ export default function App({
   pageProps: { session, ...pageProps },
 }) {
   return (
-    <Provider store={store}>
-      <SessionProvider session={session}>
+    <SessionProvider session={session}>
+      <Provider store={store}>
         <NavBar>
           <StaticNavBar>
             <Component {...pageProps} />
             <Footer />
           </StaticNavBar>
         </NavBar>
-      </SessionProvider>
-    </Provider>
+      </Provider>
+    </SessionProvider>
   );
 }
