@@ -1,6 +1,7 @@
 import styles from "./Cart.module.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 import CartItem from "../CartItem/CartItem";
 export default function Cart(props) {
@@ -13,6 +14,14 @@ export default function Cart(props) {
     props.bringCartState(true);
     dispatch({ type: "HIDE_CART" });
   };
+
+  const router = useRouter();
+
+  const navigateToCartReview = ()=>{
+    router.push('/review/cart')
+    props.bringCartState(true);
+    dispatch({ type: "HIDE_CART" });
+  }
 
   return (
     <div
@@ -53,7 +62,7 @@ export default function Cart(props) {
           <CartItem />
         </div>
         <div className={styles.reviewOrderContainer}>
-          <button className={styles.reviewOrder}> review order </button>
+          <button className={styles.reviewOrder} onClick={navigateToCartReview}> review order </button>
         </div>
       </div>
     </div>
