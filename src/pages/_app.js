@@ -4,7 +4,7 @@ import "@/styles/loginForum.css";
 import Footer from "@/component/Footer/Footer";
 import NavBar from "@/component/NavBar/NavBar";
 import StaticNavBar from "@/component/NavBar/StaticNavBar";
-import Cart from "@/component/Cart/Cart";
+import Cart from "@/component/Cart/cartIndex/Cart";
 
 import { SessionProvider } from "next-auth/react";
 import { Provider } from "react-redux";

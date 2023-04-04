@@ -1,0 +1,95 @@
+.body {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: flex-end;
+  position: fixed;
+
+  z-index: 1000;
+
+  height: 100%;
+  width: 100vw;
+  transition: visibility ease 0.2s;
+
+  overflow: hidden;
+}
+.hideBody {
+  visibility: hidden;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(50, 50, 50, 0.4);
+  border: none;
+
+  transition: background-color ease 0.2s;
+}
+.hideBackdrop {
+  background-color: transparent;
+}
+
+.cartSection {
+  width: 30rem;
+  background-color: white;
+  z-index: 1;
+
+  transition: transform ease 0.2s;
+  /* transform: translateX(30rem); */
+
+  display: flex;
+  flex-direction: column;
+}
+
+.hideCart {
+  transform: translateX(30rem);
+}
+
+.cartButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 5rem;
+
+  justify-content: flex-end;
+}
+
+.cartButton button {
+  margin-right: 2rem;
+  font-size: 30px;
+  font-family: openSansLight;
+
+  border: none;
+  background-color: transparent;
+}
+
+.cartButton button:hover {
+  cursor: pointer;
+}
+
+.cartItemContainer {
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+  margin-bottom: 2rem;
+  gap: 3rem;
+  overflow-y: scroll;
+  padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
+  box-sizing: content-box; /* So the width will be 100% + 17px */
+
+}
+.reviewOrder {
+  width: 28rem;
+  height: 3rem;
+  background-color: transparent;
+  border: solid 1px rgb(100,100,100);
+  border-radius: 5px;
+}
+
+.reviewOrderContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
