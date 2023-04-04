@@ -1,0 +1,19 @@
+.logo{
+    width: 33%;
+    padding-left: 5rem;
+}
+
+.tabs{
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.user{
+    width: 33%;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding-right: 5rem;
+}

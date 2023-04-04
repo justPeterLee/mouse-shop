@@ -1,6 +1,8 @@
 import { Fragment, useEffect, useRef } from "react";
 import Link from "next/link";
 import styles from "./NavBar.module.css";
+
+import Index from "./index";
 export default function NavBar(props) {
   const nav = useRef();
   let lastScroll = 0;
@@ -33,23 +35,7 @@ export default function NavBar(props) {
   return (
     <Fragment>
       <header ref={nav} className={`${styles.navbar} ${styles.hidden}`}>
-
-        <div className={styles.logo}>
-        <Link href="/">
-          <div className={styles.logo_item}>Logo</div>
-        </Link>
-        </div>
-
-        <div className={styles.tabs}>
-          <Link href="/shop">Shop</Link>
-          <Link href="/about">About</Link>
-          <Link href="/contact">Contact</Link>
-        </div>
-
-        <div className={styles.user}>
-          <Link href="/user/login">Sign up</Link>
-          <Link href="/cart">cart</Link>
-        </div>
+        <Index/>
       </header>
       <main>{props.children}</main>
     </Fragment>
