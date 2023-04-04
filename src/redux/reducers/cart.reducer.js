@@ -5,6 +5,8 @@ import { combineReducers } from "redux";
         - display or hide the view of cart modal
 */
 
+
+// toggle the view of the cart
 function toggleCart(state=false, action){
     switch(action.type){
         case "SHOW_CART":
@@ -17,5 +19,5 @@ function toggleCart(state=false, action){
 }
 
 export default combineReducers({
-    toggleCart
+    toggleCart,
 })

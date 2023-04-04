@@ -7,12 +7,14 @@ import StaticNavBar from "@/component/NavBar/StaticNavBar";
 
 import { SessionProvider } from "next-auth/react";
 import { Provider } from "react-redux";
+
+import store from "@/redux/store/store";
 export default function App({
   Component,
   pageProps: { session, ...pageProps },
 }) {
   return (
-    // <Provider store={store}>
+    <Provider store={store}>
       <SessionProvider session={session}>
         <NavBar>
           <StaticNavBar>
@@ -21,6 +23,6 @@ export default function App({
           </StaticNavBar>
         </NavBar>
       </SessionProvider>
-    // </Provider>
+    </Provider>
   );
 }
