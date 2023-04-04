@@ -9,7 +9,7 @@ export default function NavBar(props) {
 
   const pageScroll = (event) => {
     let currentScroll = window.pageYOffset;
-    if (currentScroll > 112) {
+    if (currentScroll > 112 && nav.current.classList) {
       nav.current.classList.remove(styles.hidden);
       if (currentScroll - lastScroll > 0) {
         nav.current.classList.add(styles.scrollDown);
@@ -29,13 +29,16 @@ export default function NavBar(props) {
     lastScroll = currentScroll;
   };
 
+  const onBringCartState = (data) => {
+    props.bringCartState(data)
+  }
   useEffect(() => {
     window.addEventListener("scroll", pageScroll);
   }, []);
   return (
     <Fragment>
-      <header ref={nav} className={`${styles.navbar} ${styles.hidden}`}>
-        <Index/>
+      <header ref={nav} className={`${styles.navbar} ${styles.hidden} ${styles.extraOne} ${styles.extraTwo}`}>
+        <Index onBringCartState={onBringCartState}/>
       </header>
       <main>{props.children}</main>
     </Fragment>
