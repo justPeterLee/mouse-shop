@@ -2,6 +2,7 @@ import styles from "./ProductDescription.module.css";
 import ProductDescInfo from "../ProductDescInfo/ProductDescInfo";
 import ProductSelection from "../ProductSelection/selectIndex/ProductSelection";
 import ProductReview from "../ProductReview/reviewIndex/ProductReview";
+import ProductDesc from "../ProductDesc/ProductDesc";
 export default function ProductDescription() {
   return (
     <div className={styles.body}>
@@ -29,7 +30,7 @@ export default function ProductDescription() {
           <p>Add to Cart</p>
         </button>
       </div>
-
+      <ProductDesc/>
       <ProductReview />
     </div>
   );

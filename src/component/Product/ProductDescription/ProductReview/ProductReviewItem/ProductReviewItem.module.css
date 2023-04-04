@@ -20,6 +20,11 @@
     right: 0px;
     width: 20px;
     background-color: rgb(245,245,240);
+    letter-spacing: 1px;
+}
+
+.text{
+    width:27.9rem
 }
 
 

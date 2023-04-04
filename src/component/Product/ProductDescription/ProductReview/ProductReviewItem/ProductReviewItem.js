@@ -22,9 +22,9 @@ export default function ProductReviewItem({ title, rate, name, date, desc }) {
         <div className={styles.name}>{name}</div>
         <div className={styles.date}>{date}</div>
       </div>
-      <div>
+      <div className={styles.text}>
         <p ref={rateDesc} className={showText ? styles.show :styles.hide }>
-          {desc} <span className={styles.dots}>...</span>
+          {desc} <span className={styles.dots} style={showText ? {display: 'none'} : {}}>...</span>
         </p>
         <span>
           <button className={styles.showComment} onClick={toggleTextState}>

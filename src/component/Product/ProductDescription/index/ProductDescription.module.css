@@ -3,6 +3,8 @@
     display: flex;
     flex-direction: column;
     gap:2rem;
+    margin-bottom: 1rem;
+    
 }
 
 .cart_button{
@@ -12,6 +14,8 @@
     border: none;
     background-color: rgb(200,200,200);
 
+    transition: background-color linear .05s;
+
 }
 
 .cart_button p{
@@ -19,4 +23,12 @@
     font-size: 15px;
     margin: 0;
     color: white;
+}
+
+.cart_button:hover{
+    cursor: pointer;
+}
+
+.cart_button:active{
+    background-color: rgb(185,185,185);
 }
