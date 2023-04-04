@@ -30,15 +30,22 @@ export default function NavBar(props) {
   };
 
   const onBringCartState = (data) => {
-    props.bringCartState(data)
-  }
+    props.bringCartState(data);
+  };
   useEffect(() => {
-    window.addEventListener("scroll", pageScroll);
+    window.addEventListener("scroll", pageScroll), { passive: true };
+    return () => {
+      window.removeEventListener("scroll", pageScroll, { passive: true });
+    };
   }, []);
+
   return (
     <Fragment>
-      <header ref={nav} className={`${styles.navbar} ${styles.hidden} ${styles.extraOne} ${styles.extraTwo}`}>
-        <Index onBringCartState={onBringCartState}/>
+      <header
+        ref={nav}
+        className={`${styles.navbar} ${styles.hidden} ${styles.extraOne} ${styles.extraTwo}`}
+      >
+        <Index onBringCartState={onBringCartState} />
       </header>
       <main>{props.children}</main>
     </Fragment>

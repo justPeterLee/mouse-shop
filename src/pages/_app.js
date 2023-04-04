@@ -8,7 +8,7 @@ import Cart from "@/component/Cart/Cart";
 
 import { SessionProvider } from "next-auth/react";
 import { Provider } from "react-redux";
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 
 import store from "@/redux/store/store";
 export default function App({
@@ -16,18 +16,34 @@ export default function App({
   pageProps: { session, ...pageProps },
 }) {
   const [cartState, setCartState] = useState(true);
+  const [scrollY, setScrollY] = useState(0);
   const bringCartState = (data) => {
     setCartState(data);
   };
 
   const bringCartStateFalse = (data) => {
     setCartState(data);
-  }; 
+  };
+
+  const onScroll = useCallback((event) => {
+    const { pageYOffset, scrollY } = window;
+    console.log("yOffset", pageYOffset, "scrollY", scrollY);
+    setScrollY(window.pageYOffset);
+  }, []);
+
+  useEffect(() => {
+    //add eventlistener to window
+    window.addEventListener("scroll", onScroll, { passive: true });
+    // remove event on unmount to prevent a memory leak with the cleanup
+    return () => {
+      window.removeEventListener("scroll", onScroll, { passive: true });
+    };
+  }, []);
   return (
     <SessionProvider session={session}>
       <Provider store={store}>
         <Cart bringCartState={bringCartState} />
-        <div style={cartState ? {} : { overflow: "hidden", height: "100vh" }}>
+        <div style={cartState ? {} : { position: "fixed", top: `-${scrollY}px` }}>
           <NavBar bringCartState={bringCartStateFalse}>
             <StaticNavBar bringCartState={bringCartStateFalse}>
               <Component {...pageProps} />
