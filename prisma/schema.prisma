@@ -12,16 +12,15 @@ generator client {
 }
 
 model user {
-  id               Int                @id @default(autoincrement())
-  createdAt        DateTime           @default(now())
-  updatedAt        DateTime           @default(now()) @updatedAt
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 
-  user_name        String             @db.VarChar(255)
-  user_last        String             @db.VarChar(255)
-  email            String
-  password         String             @db.VarChar(1000)
+  user_name String @db.VarChar(255)
+  user_last String @db.VarChar(255)
+  email     String
+  password  String @db.VarChar(1000)
 
-  
   cart_list        cart_list[]
   wish_list        wish_list[]
   purchase_history purchase_history[]
@@ -44,6 +43,9 @@ model product {
 
   inventory_connection inventory_connection[]
   discount_connection  discount_connection[]
+  view_product         view_product[]
+  view_order           view_order[]
+  view_purchase        view_purchase[]
 }
 
 // product info ------
@@ -62,27 +64,25 @@ model product_category {
 
 // inventory 
 model product_inventory {
-  id                   Int                    @id @default(autoincrement())
-  createdAt            DateTime               @default(now())
-  updatedAt            DateTime               @default(now()) @updatedAt
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 
-  inventory_quanity    Int                    @db.Int
-
+  inventory_quanity Int @db.Int
 
   inventory_connection inventory_connection[]
 }
 
 // discount
 model product_discount {
-  id                  Int                   @id @default(autoincrement())
-  createdAt           DateTime              @default(now())
-  updatedAt           DateTime              @default(now()) @updatedAt
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 
-  discount_name       String                @db.VarChar(255)
-  discount_desc       String                @db.VarChar(255)
-  discount_percentage Decimal               @db.Decimal(5, 5)
-  active              Boolean               @db.TinyInt
-
+  discount_name       String  @db.VarChar(255)
+  discount_desc       String  @db.VarChar(255)
+  discount_percentage Decimal @db.Decimal(5, 5)
+  active              Boolean @db.TinyInt
 
   discount_connection discount_connection[]
 }
@@ -135,14 +135,14 @@ model discount_connection {
 
 // cart tables -------------------------------------------------------
 model cart_list {
-  id            Int      @id @default(autoincrement())
-  createdAt     DateTime @default(now())
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
 
-  product_id    Int
-  product_ref   product  @relation(fields: [product_id], references: [id])
+  product_id  Int
+  product_ref product @relation(fields: [product_id], references: [id])
 
-  user_id       Int
-  user_ref      user     @relation(fields: [user_id], references: [id])
+  user_id  Int
+  user_ref user @relation(fields: [user_id], references: [id])
 
   cart_quantity Int
 
@@ -181,4 +181,44 @@ model purchase_history {
 
   @@index([product_id])
   @@index([user_id])
+}
+
+// algorithm -------------------------------------------------------
+model algorithm_info {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model view_product {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  product_int Int
+  product_ref product @relation(fields: [product_int], references: [id])
+
+  @@index([product_int])
+}
+
+model view_order {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  product_int Int
+  product_ref product @relation(fields: [product_int], references: [id])
+
+  @@index([product_int])
+}
+
+model view_purchase {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  product_int Int
+  product_ref product @relation(fields: [product_int], references: [id])
+
+  @@index([product_int])
 }
