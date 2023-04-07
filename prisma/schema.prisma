@@ -17,13 +17,12 @@ model user {
   updatedAt        DateTime           @default(now()) @updatedAt
   user_name        String             @db.VarChar(255)
   user_last        String             @db.VarChar(255)
-  email            String            
+  email            String
   password         String             @db.VarChar(1000)
   cart_list        cart_list[]
   wish_list        wish_list[]
   purchase_history purchase_history[]
 }
-
 
 // Products Table -------------------------------------------------------
 model product {
@@ -35,27 +34,36 @@ model product {
   sku           String   @db.VarChar(10000)
   product_price Float    @db.Float
 
-  product_category  product_category[]
-  product_inventory product_inventory[]
-  product_discount  product_discount[]
-  cart_list         cart_list[]
-  wish_list         wish_list[]
-  purchase_history  purchase_history[]
+  product_category_id  Int
+  product_category_ref product_category @relation(fields: [product_category_id], references: [id])
+
+  product_inventory_id  Int               @unique
+  product_inventory_ref product_inventory @relation(fields: [product_inventory_id], references: [id])
+
+  product_discount_id  Int              @unique
+  product_discount_ref product_discount @relation(fields: [product_discount_id], references: [id])
+
+  cart_list        cart_list[]
+  wish_list        wish_list[]
+  purchase_history purchase_history[]
+
+  @@index([product_category_id])
+  @@index([product_inventory_id])
+  @@index([product_discount_id])
 }
 
 // product info ------
 
 // category
 model product_category {
-  id            Int      @id @default(autoincrement())
-  category_name String   @db.VarChar(255)
-  category_desc String   @db.VarChar(255)
-  product_id    Int
-  product_ref   product  @relation(fields: [product_id], references: [id])
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @default(now()) @updatedAt
+  id            Int    @id @default(autoincrement())
+  category_name String @db.VarChar(255)
+  category_desc String @db.VarChar(255)
 
-  @@index([product_id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  product product[]
 }
 
 // inventory 
@@ -64,10 +72,8 @@ model product_inventory {
   createdAt         DateTime @default(now())
   updatedAt         DateTime @default(now()) @updatedAt
   inventory_quanity Int      @db.Int
-  product_id        Int
-  product_ref       product  @relation(fields: [product_id], references: [id])
 
-  @@index([product_id])
+  product product?
 }
 
 // discount
@@ -79,12 +85,9 @@ model product_discount {
   discount_desc       String   @db.VarChar(255)
   discount_percentage Decimal  @db.Decimal(5, 5)
   active              Boolean  @db.TinyInt
-  product_id          Int
-  product_ref         product  @relation(fields: [product_id], references: [id])
 
-  @@index([product_id])
+  product product?
 }
-
 
 // cart tables -------------------------------------------------------
 model cart_list {
@@ -112,7 +115,6 @@ model wish_list {
   @@index([product_id])
   @@index([user_id])
 }
-
 
 // purchase tables -------------------------------------------------------
 model purchase_history {
