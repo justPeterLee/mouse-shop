@@ -31,7 +31,7 @@ model product {
   createdAt     DateTime @default(now())
   updatedAt     DateTime @default(now()) @updatedAt
   product_name  String   @db.VarChar(255)
-  product_desc  String   @db.VarChar(10000)
+  product_desc  String   @db.VarChar(1000)
   sku           String   @db.VarChar(10000)
   product_price Float    @db.Float
 
