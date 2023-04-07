@@ -34,22 +34,13 @@ model product {
   sku           String   @db.VarChar(10000)
   product_price Float    @db.Float
 
-  product_category_id  Int
-  product_category_ref product_category @relation(fields: [product_category_id], references: [id])
+  cart_list           cart_list[]
+  wish_list           wish_list[]
+  purchase_history    purchase_history[]
+  category_connection category_connection[]
 
-  product_inventory_id  Int               @unique
-  product_inventory_ref product_inventory @relation(fields: [product_inventory_id], references: [id])
-
-  product_discount_id  Int              @unique
-  product_discount_ref product_discount @relation(fields: [product_discount_id], references: [id])
-
-  cart_list        cart_list[]
-  wish_list        wish_list[]
-  purchase_history purchase_history[]
-
-  @@index([product_category_id])
-  @@index([product_inventory_id])
-  @@index([product_discount_id])
+  inventory_connection inventory_connection[]
+  discount_connection  discount_connection[]
 }
 
 // product info ------
@@ -63,30 +54,74 @@ model product_category {
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
 
-  product product[]
+  category_connection category_connection[]
 }
 
 // inventory 
 model product_inventory {
-  id                Int      @id @default(autoincrement())
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @default(now()) @updatedAt
-  inventory_quanity Int      @db.Int
-
-  product product?
+  id                   Int                    @id @default(autoincrement())
+  createdAt            DateTime               @default(now())
+  updatedAt            DateTime               @default(now()) @updatedAt
+  inventory_quanity    Int                    @db.Int
+  inventory_connection inventory_connection[]
 }
 
 // discount
 model product_discount {
-  id                  Int      @id @default(autoincrement())
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @default(now()) @updatedAt
-  discount_name       String   @db.VarChar(255)
-  discount_desc       String   @db.VarChar(255)
-  discount_percentage Decimal  @db.Decimal(5, 5)
-  active              Boolean  @db.TinyInt
+  id                  Int                   @id @default(autoincrement())
+  createdAt           DateTime              @default(now())
+  updatedAt           DateTime              @default(now()) @updatedAt
+  discount_name       String                @db.VarChar(255)
+  discount_desc       String                @db.VarChar(255)
+  discount_percentage Decimal               @db.Decimal(5, 5)
+  active              Boolean               @db.TinyInt
+  discount_connection discount_connection[]
+}
 
-  product product?
+// connection ============
+model category_connection {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  product_id  Int
+  product_ref product @relation(fields: [product_id], references: [id])
+
+  category_id  Int
+  category_ref product_category @relation(fields: [category_id], references: [id])
+
+  @@index([product_id])
+  @@index([category_id])
+}
+
+model inventory_connection {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  product_id  Int
+  product_ref product @relation(fields: [product_id], references: [id])
+
+  inventory_id  Int
+  inventory_ref product_inventory @relation(fields: [inventory_id], references: [id])
+
+  @@index([product_id])
+  @@index([inventory_id])
+}
+
+model discount_connection {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  product_id  Int
+  product_ref product @relation(fields: [product_id], references: [id])
+
+  discount_id  Int
+  discount_ref product_discount @relation(fields: [discount_id], references: [id])
+
+  @@index([product_id])
+  @@index([discount_id])
 }
 
 // cart tables -------------------------------------------------------
