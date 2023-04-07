@@ -36,16 +36,17 @@ model product {
   sku           String   @db.VarChar(10000)
   product_price Float    @db.Float
 
-  cart_list           cart_list[]
-  wish_list           wish_list[]
-  purchase_history    purchase_history[]
-  category_connection category_connection[]
+  cart_list        cart_list[]
+  wish_list        wish_list[]
+  purchase_history purchase_history[]
 
-  inventory_connection inventory_connection[]
-  discount_connection  discount_connection[]
-  view_product         view_product[]
-  view_order           view_order[]
-  view_purchase        view_purchase[]
+  product_inventory   product_inventory[]
+  category_connection category_connection[]
+  discount_connection discount_connection[]
+
+  view_product  view_product[]
+  view_order    view_order[]
+  view_purchase view_purchase[]
 }
 
 // product info ------
@@ -70,7 +71,10 @@ model product_inventory {
 
   inventory_quanity Int @db.Int
 
-  inventory_connection inventory_connection[]
+  product_id  Int
+  product_ref product @relation(fields: [product_id], references: [id])
+
+  @@index([product_id])
 }
 
 // discount
@@ -101,21 +105,6 @@ model category_connection {
 
   @@index([product_id])
   @@index([category_id])
-}
-
-model inventory_connection {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now()) @updatedAt
-
-  product_id  Int
-  product_ref product @relation(fields: [product_id], references: [id])
-
-  inventory_id  Int
-  inventory_ref product_inventory @relation(fields: [inventory_id], references: [id])
-
-  @@index([product_id])
-  @@index([inventory_id])
 }
 
 model discount_connection {
