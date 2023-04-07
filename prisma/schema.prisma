@@ -11,13 +11,119 @@ generator client {
   provider = "prisma-client-js"
 }
 
-
 model user {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  user_name String @db.VarChar(255)
-  user_last String @db.VarChar(255)
-  email  String   @db.VarChar(255)
-  password  String   @db.VarChar(1000)
+  id               Int                @id @default(autoincrement())
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @default(now()) @updatedAt
+  user_name        String             @db.VarChar(255)
+  user_last        String             @db.VarChar(255)
+  email            String            
+  password         String             @db.VarChar(1000)
+  cart_list        cart_list[]
+  wish_list        wish_list[]
+  purchase_history purchase_history[]
+}
+
+
+// Products Table -------------------------------------------------------
+model product {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now()) @updatedAt
+  product_name  String   @db.VarChar(255)
+  product_desc  String   @db.VarChar(255)
+  sku           String   @db.VarChar(10000)
+  product_price Float    @db.Float
+
+  product_category  product_category[]
+  product_inventory product_inventory[]
+  product_discount  product_discount[]
+  cart_list         cart_list[]
+  wish_list         wish_list[]
+  purchase_history  purchase_history[]
+}
+
+// product info ------
+
+// category
+model product_category {
+  id            Int      @id @default(autoincrement())
+  category_name String   @db.VarChar(255)
+  category_desc String   @db.VarChar(255)
+  product_id    Int
+  product_ref   product  @relation(fields: [product_id], references: [id])
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now()) @updatedAt
+
+  @@index([product_id])
+}
+
+// inventory 
+model product_inventory {
+  id                Int      @id @default(autoincrement())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @default(now()) @updatedAt
+  inventory_quanity Int      @db.Int
+  product_id        Int
+  product_ref       product  @relation(fields: [product_id], references: [id])
+
+  @@index([product_id])
+}
+
+// discount
+model product_discount {
+  id                  Int      @id @default(autoincrement())
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @default(now()) @updatedAt
+  discount_name       String   @db.VarChar(255)
+  discount_desc       String   @db.VarChar(255)
+  discount_percentage Decimal  @db.Decimal(5, 5)
+  active              Boolean  @db.TinyInt
+  product_id          Int
+  product_ref         product  @relation(fields: [product_id], references: [id])
+
+  @@index([product_id])
+}
+
+
+// cart tables -------------------------------------------------------
+model cart_list {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  product_id    Int
+  product_ref   product  @relation(fields: [product_id], references: [id])
+  user_id       Int
+  user_ref      user     @relation(fields: [user_id], references: [id])
+  cart_quantity Int
+
+  @@index([product_id])
+  @@index([user_id])
+}
+
+// favorites
+model wish_list {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  product_id  Int
+  product_ref product  @relation(fields: [product_id], references: [id])
+  user_id     Int
+  user_ref    user     @relation(fields: [user_id], references: [id])
+
+  @@index([product_id])
+  @@index([user_id])
+}
+
+
+// purchase tables -------------------------------------------------------
+model purchase_history {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  product_id  Int
+  product_ref product  @relation(fields: [product_id], references: [id])
+  user_id     Int
+  user_ref    user     @relation(fields: [user_id], references: [id])
+  quantity    Int
+
+  @@index([product_id])
+  @@index([user_id])
 }

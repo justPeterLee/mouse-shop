@@ -4,7 +4,7 @@ import ReviewCartProduct from '../ReviewCartProducts/ReviewCartProduct';
 
 export default function Review(){
     return(
-        <div>
+        <div className={styles.body}>
             <ReviewCartProduct/>
             <CartReceipt/>
         </div>
