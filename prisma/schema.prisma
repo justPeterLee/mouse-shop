@@ -28,26 +28,34 @@ model user {
 
 // Products Table -------------------------------------------------------
 model product {
-  id            Int      @id @default(autoincrement())
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @default(now()) @updatedAt
-  product_name  String   @db.VarChar(255)
-  product_desc  String   @db.VarChar(1000)
-  sku           String   @db.VarChar(10000)
-  product_price Float    @db.Float
+  id                Int                @id @default(autoincrement())
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @default(now()) @updatedAt
+  product_name      String             @db.VarChar(255)
+  product_desc      String             @db.VarChar(1000)
+  sku               String             @db.VarChar(10000)
+  product_price     Float              @db.Float
+  product_inventory Int                @db.Int
+  cart_list         cart_list[]
+  wish_list         wish_list[]
+  purchase_history  purchase_history[]
 
-  cart_list        cart_list[]
-  wish_list        wish_list[]
-  purchase_history purchase_history[]
-
-  product_inventory   product_inventory[]
   category_connection category_connection[]
   discount_connection discount_connection[]
 
   view_product  view_product[]
   view_order    view_order[]
   view_purchase view_purchase[]
+
   product_point product_point[]
+
+  model_connect  model_connect[]
+  dpi_connect    dpi_connect[]
+  wire_connect   wire_connect[]
+  color_connect  color_connect[]
+  size_connect   size_connect[]
+  switch_connect switch_connect[]
+  product_review product_review[]
 }
 
 // product info ------
@@ -62,20 +70,6 @@ model product_category {
   updatedAt DateTime @default(now()) @updatedAt
 
   category_connection category_connection[]
-}
-
-// inventory 
-model product_inventory {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now()) @updatedAt
-
-  inventory_quanity Int @db.Int
-
-  product_id  Int
-  product_ref product @relation(fields: [product_id], references: [id])
-
-  @@index([product_id])
 }
 
 // discount
@@ -134,6 +128,197 @@ model discount_connection {
 
   @@index([product_id])
   @@index([discount_id])
+}
+
+// selection options table -------------------------------------------------------
+// model (type)
+model product_model {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  product_model    String
+  product_version  Float
+  product_material String
+
+  model_sku     String
+  model_connect model_connect[]
+}
+
+// dpi
+model product_dpi {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  product_dpi Int
+
+  dpi_sku     String
+  dpi_connect dpi_connect[]
+}
+
+// wire
+model product_wire {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  product_wire String
+
+  wire_sku     String
+  wire_connect wire_connect[]
+}
+
+// color
+model product_color {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  product_color String
+  product_rgb   String?
+
+  color_sku     String
+  color_connect color_connect[]
+}
+
+// size
+model product_size {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  product_size String
+
+  size_sku     String
+  size_connect size_connect[]
+}
+
+// switches
+
+model product_switch {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  product_switch String
+
+  switch_sku     String
+  switch_connect switch_connect[]
+}
+
+// selection connection tables =======================================
+
+// model
+model model_connect {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  product_id  Int
+  product_ref product @relation(fields: [product_id], references: [id])
+
+  model_id  Int
+  model_ref product_model @relation(fields: [model_id], references: [id])
+
+  @@index([product_id])
+  @@index([model_id])
+}
+
+// dpi 
+model dpi_connect {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  product_id  Int
+  product_ref product @relation(fields: [product_id], references: [id])
+
+  dpi_id  Int
+  dpi_ref product_dpi @relation(fields: [dpi_id], references: [id])
+
+  @@index([product_id])
+  @@index([dpi_id])
+}
+
+// wire 
+model wire_connect {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  product_id  Int
+  product_ref product @relation(fields: [product_id], references: [id])
+
+  wire_id  Int
+  wire_ref product_wire @relation(fields: [wire_id], references: [id])
+
+  @@index([product_id])
+  @@index([wire_id])
+}
+
+// color
+model color_connect {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  product_id  Int
+  product_ref product @relation(fields: [product_id], references: [id])
+
+  color_id  Int
+  color_ref product_color @relation(fields: [color_id], references: [id])
+
+  @@index([product_id])
+  @@index([color_id])
+}
+
+// size
+model size_connect {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  product_id  Int
+  product_ref product @relation(fields: [product_id], references: [id])
+
+  size_id  Int
+  size_ref product_size @relation(fields: [size_id], references: [id])
+
+  @@index([product_id])
+  @@index([size_id])
+}
+
+// switch 
+model switch_connect {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  product_id  Int
+  product_ref product @relation(fields: [product_id], references: [id])
+
+  switch_id  Int
+  switch_ref product_switch @relation(fields: [switch_id], references: [id])
+
+  @@index([product_id])
+  @@index([switch_id])
+}
+
+// review tabel ------------------------------------------------------
+
+// review 
+model product_review {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  review_user String
+  review_rate Int
+  review_desc String
+
+  product_id  Int
+  product_ref product @relation(fields: [product_id], references: [id])
+
+  @@index([product_id])
 }
 
 // cart tables -------------------------------------------------------
