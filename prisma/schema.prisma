@@ -47,6 +47,7 @@ model product {
   view_product  view_product[]
   view_order    view_order[]
   view_purchase view_purchase[]
+  product_point product_point[]
 }
 
 // product info ------
@@ -89,6 +90,19 @@ model product_discount {
   active              Boolean @db.TinyInt
 
   discount_connection discount_connection[]
+}
+
+model product_point {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  point String
+
+  product_id  Int
+  product_ref product @relation(fields: [product_id], references: [id])
+
+  @@index([product_id])
 }
 
 // connection ============
