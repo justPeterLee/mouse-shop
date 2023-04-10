@@ -1,10 +1,10 @@
 import styles from "./StoreItem.module.css";
 import { useRouter } from "next/router";
-export default function StoreItem() {
+export default function StoreItem({id, name, cat, price}) {
     const router = useRouter();
     
     const navigateProduct = ()=>{
-        router.push(`/products/1`)
+        router.push(`/products/${id}`)
     }
   return (
     <button className={styles.body} onClick={navigateProduct}>
@@ -13,10 +13,10 @@ export default function StoreItem() {
 
       <div className={styles.desc}>
         <div>
-          <p className={styles.title}>Item Name</p>
-          <p className={styles.cat}>mouse</p>
+          <p className={styles.title}>{name}</p>
+          <p className={styles.cat}>{cat}</p>
         </div>
-        <p className={styles.price}>$25</p>
+        <p className={styles.price}>${price}</p>
       </div>
 
     </button>
