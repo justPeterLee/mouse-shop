@@ -1,7 +1,5 @@
 import styles from "./SideFeature.module.css";
 import { useEffect, useState } from "react";
-
-import { useDispatch } from "react-redux";
 export default function SideFeature(props) {
   const [side, setSide] = useState({});
 
@@ -18,17 +16,12 @@ export default function SideFeature(props) {
       });
     }
   }, []);
-
-  const dispatch = useDispatch();
-  const getAll = () => {
-    dispatch({ type: "FETCH_MAIN_PRODUCTS" });
-  };
   return (
     <div
       className={styles.container}
       style={{ backgroundColor: `${props.backgroundColor}` }}
     >
-      <button className={`${styles.buttonDetails}`} style={side} onClick={getAll}>
+      <button className={`${styles.buttonDetails}`} style={side}>
         show details
       </button>
     </div>
