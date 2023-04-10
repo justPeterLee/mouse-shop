@@ -9,11 +9,7 @@ export default function StoreFilter() {
   const { filterCat } = router.query;
 
   useEffect(() => {
-    if (filterCat) {
-      console.log("hello");
-    } else {
-      console.log("bye");
-    }
+    
   }, []);
 
   return (
