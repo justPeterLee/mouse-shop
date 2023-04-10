@@ -9,7 +9,7 @@ function* mainStoreSaga() {
 // fetch all products
 function* fetchMainProducts() {
   try {
-    const response = yield fetch("/api/routes/store", {
+    const response = yield fetch("/api/routes/store/store.router", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
