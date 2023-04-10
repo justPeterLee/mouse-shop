@@ -28,7 +28,15 @@ function* fetchMainProducts() {
 // fetch filter products
 function* fetchFilterProducts(){
   try{
+    const response = yield fetch('/api/routes/store/storeFil.router', {
+      method: 'GET',
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
 
+    const products = yield response.json();
+    yield put({ type: "SET_FILTER_STORE", payload: products });
   }catch(err){
     console.log('Error with getting filterd products: ', err);
   }
