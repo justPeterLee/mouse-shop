@@ -3,7 +3,7 @@ import StoreItem from "../StoreItem/StoreItem";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-export default function StoreMain() {
+export default function StoreFilter() {
   const store = useSelector((store) => store.mainStore.mainStore);
   const router = useRouter();
   const { filterCat } = router.query;
