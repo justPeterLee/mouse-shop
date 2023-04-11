@@ -5,7 +5,7 @@ import StoreMenuLink from "./StoreMenuLink/StoreMenuLink";
 import { useEffect } from "react";
 export default function StoreMenu() {
   const dispatch = useDispatch();
-  // const filCat = useSelector();
+  const filCat = useSelector(store=>store.mainStore.menuCategory);
 
   useEffect(()=>{
     dispatch({type: "FETCH_MENU_CATEGORY"})
@@ -13,8 +13,16 @@ export default function StoreMenu() {
 
   return (
     <div className={styles.filterContainer}>
-        <StoreMenuLink/>
-        <StoreMenuLink/>
+        {
+          filCat.map((cat)=>(
+            <StoreMenuLink
+            key={cat.id}
+            name={cat.category_name}
+            option={cat.category_connection}
+            id={cat.id}
+            />
+          ))
+        }
     </div>
   );
 }

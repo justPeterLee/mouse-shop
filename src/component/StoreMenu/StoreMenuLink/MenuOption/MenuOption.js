@@ -1,8 +1,8 @@
 import styles from "./MenuOption.module.css";
-export default function MenuOption() {
+export default function MenuOption({name}) {
   return (
     <button className={styles.button}>
-      <p>product 1</p>
+      <p>{name}</p>
     </button>
   );
 }

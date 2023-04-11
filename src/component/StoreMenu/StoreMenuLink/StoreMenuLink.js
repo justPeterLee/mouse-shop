@@ -1,20 +1,20 @@
 import styles from "./StoreMenuLink.module.css";
 import MenuOption from "./MenuOption/MenuOption";
-export default function StoreMenuLink() {
+export default function StoreMenuLink({name, option, id}) {
   return (
     <div className={styles.linkContainer}>
       <div className={styles.linkTitle}>
         <button className={styles.linkButton}>
-          <p>Computer Mouse</p>
+          <p>{name}</p>
         </button>
       </div>
       <div className={styles.linkOptions}>
-        <MenuOption/>
-        <MenuOption/>
-        <MenuOption/>
-        <MenuOption/>
-        <MenuOption/>
-        <MenuOption/>
+        {option.map((option)=>(
+          <MenuOption
+          key={Math.random()}
+          name={option.product_ref.product_name}
+          />
+        ))}
       </div>
     </div>
   );
