@@ -34,7 +34,22 @@ function filterStore(state = [], action) {
       return (state = []);
   }
 }
+
+function menuCategory(state = [], action){
+  switch(action.type){
+    case "SET_MENU_CATEGORY":
+      return state = action.payload;
+    case "RESET_MENU_CATEGORY":
+      return state = [];
+    case "RESET_STORE":
+      return state = [];
+    default:
+      return state = [];
+  }
+}
+
 export default combineReducers({
   mainStore,
   filterStore,
+  menuCategory,
 });
