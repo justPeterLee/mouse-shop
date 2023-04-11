@@ -11,7 +11,6 @@ async function getAll(req, res) {
       },
     },
   });
-  console.log("path: ", allItems);
   res.send(allItems);
 }
 

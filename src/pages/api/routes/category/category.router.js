@@ -15,6 +15,5 @@ export default async function getCategory(req, res){
             }
         }
     })
-    console.log(allCat)
     res.send(allCat)
 }

@@ -28,7 +28,6 @@ async function getAll(req, res) {
       product_ref: true,
     },
   });
-  console.log("path: ", allItems);
   res.send(allItems);
 }
 

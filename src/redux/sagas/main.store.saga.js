@@ -44,7 +44,7 @@ function* fetchFilterProducts(action){
 
 function* fetchMenuCategory(){
   try{
-    const response = yield fetch(`/api/routes/category/category/category.router`,{
+    const response = yield fetch(`/api/routes/category/category.router`,{
       method: 'GET',
       headers: {
         "Content-Type": "application/json",
