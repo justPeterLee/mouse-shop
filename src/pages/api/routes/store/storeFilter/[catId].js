@@ -1,7 +1,8 @@
 import prisma from "lib/db";
 
 async function getAll(req, res) {
-  const { category_id } = req.body;
+  const {catId} = req.query;
+  console.log(catId)
 
   await prisma.$connect;
   const allItems = await prisma.category_connection.findMany({
@@ -21,7 +22,7 @@ async function getAll(req, res) {
     // },
 
     where: {
-      category_id: category_id,
+      category_id: parseInt(catId),
     },
     select: {
       product_ref: true,

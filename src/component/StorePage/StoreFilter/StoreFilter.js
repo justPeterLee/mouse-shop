@@ -1,16 +1,13 @@
 import styles from "./StoreFilter.module.css";
 import StoreItem from "../StoreItem/StoreItem";
 import { useSelector, useDispatch } from "react-redux";
-import { useRouter } from "next/router";
 import { useEffect } from "react";
-export default function StoreFilter() {
+export default function StoreFilter({ catId }) {
   const dispatch = useDispatch();
-  const store = useSelector((store) => store.mainStore.mainStore);
-  const router = useRouter();
-  const { filterCat } = router.query;
+  const store = useSelector((store) => store.mainStore.filterStore);
 
   useEffect(() => {
-    dispatch({type: "FETCH_FILTER_PRODUCT"})
+    dispatch({ type: "FETCH_FILTER_PRODUCT", payload: catId });
   }, []);
 
   return (
@@ -18,11 +15,11 @@ export default function StoreFilter() {
       {store.map((item) => {
         return (
           <StoreItem
-            key={item.id}
-            id={item.id}
-            name={item.product_name}
-            price={item.product_price}
-            cat={item.category_connection[0].category_ref.category_name}
+            key={item.product_ref.id}
+            id={item.product_ref.id}
+            name={item.product_ref.product_name}
+            price={item.product_ref.product_price}
+            // cat={item.category_connection[0].category_ref.category_name}
           />
         );
       })}

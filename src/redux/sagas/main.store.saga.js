@@ -26,9 +26,10 @@ function* fetchMainProducts() {
 }
 
 // fetch filter products
-function* fetchFilterProducts(){
+function* fetchFilterProducts(action){
   try{
-    const response = yield fetch('/api/routes/store/storeFil.router', {
+    console.log(action.payload)
+    const response = yield fetch(`/api/routes/store/storeFilter/${action.payload}`, {
       method: 'GET',
       headers: {
         "Content-Type": "application/json",
