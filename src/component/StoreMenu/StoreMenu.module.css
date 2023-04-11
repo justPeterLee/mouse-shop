@@ -1,6 +1,5 @@
 .filterContainer{
-    background-color: rgb(125,125,125);
-
-    width: 20rem;
-    height: 10rem;
+    background-color: antiquewhite;
+    width: 15rem;
+    border-right: solid 1.5px rgb(170,170,170);
 }

@@ -1,0 +1,29 @@
+.linkContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-left: 1rem;
+}
+.linkContainer p{
+    margin: 0;
+}
+
+.linkButton{
+    background-color: transparent;
+    border: none;
+}
+.linkButton p{
+    font-size: 18px;
+    margin-bottom: .5rem;
+}
+
+.linkOptions{
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.linkOptions p{
+    margin-bottom: .5rem;
+}
