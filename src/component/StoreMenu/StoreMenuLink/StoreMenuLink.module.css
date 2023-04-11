@@ -12,6 +12,12 @@
 .linkButton{
     background-color: transparent;
     border: none;
+
+    transition: color ease .15s;
+}
+.linkButton:hover{
+    cursor: pointer;
+    color: rgb(90,90,90)
 }
 .linkButton p{
     font-size: 18px;
