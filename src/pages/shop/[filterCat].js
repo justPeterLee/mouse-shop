@@ -1,5 +1,6 @@
 import StoreMenu from "@/component/StoreMenu/StoreMenu";
 import StoreMain from "@/component/StorePage/StoreMain";
+import prisma from "lib/db";
 import { useRouter } from "next/router";
 
 export default function ShopAllPage(props) {
@@ -18,7 +19,6 @@ export default function ShopAllPage(props) {
 
 export async function getStaticProps(context) {
   const { params } = context;
-  console.log(params.filterCat);
   await prisma.$connect;
   const category = await prisma.product_category.findMany({
     select: {
@@ -52,7 +52,6 @@ export async function getStaticProps(context) {
     },
   });
 
-  console.log(allItems);
 
   return {
     props: {
@@ -63,8 +62,19 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
+  // connect to Db
+  await prisma.$connect;
+
+  const ids = await prisma.product_category.findMany({
+    select: {
+      id: true
+    }
+  })
+
+  const categoryParams = ids.map((id) => ({params: {filterCat: `${id.id}` }}));
+
   return {
-    paths: [{ params: { filterCat: "1" } }],
+    paths: categoryParams,
     fallback: "blocking",
   };
 }
