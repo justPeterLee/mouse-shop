@@ -6,7 +6,6 @@ import { useState } from "react";
 import Link from "next/link";
 
 const createUser = async (first, last, email, password) => {
-  console.log(JSON.stringify({ first, last, email, password }));
 
   const response = await fetch("/api/auth/signup", {
     method: "POST",

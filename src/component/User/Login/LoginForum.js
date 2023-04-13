@@ -25,7 +25,7 @@ export default function LoginForum() {
         email: email,
         password: password,
       });
-      console.log(result);
+
     } catch (err) {
       console.log("Error with signing in: ", err);
     }

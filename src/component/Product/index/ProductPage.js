@@ -6,7 +6,6 @@ import ProductDescription from '../ProductDescription/index/ProductDescription';
 export default function ProductPage(){
     const router = useRouter();
     const productId = router.query.productId
-    console.log(productId)
     return(
         <div className={styles.body}>
             <ProductImageContainer/>

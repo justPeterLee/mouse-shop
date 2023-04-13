@@ -2,7 +2,6 @@ import prisma from "lib/db";
 
 async function getAll(req, res) {
   const {catId} = req.query;
-  console.log(catId)
 
   await prisma.$connect;
   const allItems = await prisma.category_connection.findMany({

@@ -64,9 +64,6 @@ export default function ProductSelection(props) {
       }
     }
 
-    useEffect(()=>{
-      console.log(selection)
-    }, [selection])
 
   return (
     <div className={styles.body}>
