@@ -3,9 +3,9 @@ import MenuOption from "./MenuOption/MenuOption";
 import { useRouter } from "next/router";
 export default function StoreMenuLink({name, option, id}) {
   const router = useRouter();
-  
-  const navigateHandler = () => {
 
+  const navigateHandler = () => {
+    router.push(`/shop/${id}`)
   }
   return (
     <div className={styles.linkContainer}>
