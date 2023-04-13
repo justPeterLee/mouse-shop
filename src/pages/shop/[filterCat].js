@@ -44,13 +44,14 @@ export async function getStaticProps(context) {
 
   const allItems = await prisma.category_connection.findMany({
     where: {
-      category_id: 1,
+      category_id: parseInt(params.filterCat),
     },
     select: {
       product_ref: {
         select: {
           product_name: true,
           id: true,
+          product_price: true,
         },
       },
     },
@@ -69,6 +70,6 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
   return {
     paths: [{ params: { filterCat: "1" } }],
-    fallback: false,
+    fallback: "blocking",
   };
 }
