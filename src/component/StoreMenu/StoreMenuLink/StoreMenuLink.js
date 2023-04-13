@@ -19,6 +19,7 @@ export default function StoreMenuLink({name, option, id}) {
           <MenuOption
           key={Math.random()}
           name={option.product_ref.product_name}
+          id={option.product_ref.id}
           />
         ))}
       </div>

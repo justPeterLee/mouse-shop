@@ -47,7 +47,6 @@ export async function getStaticProps() {
     },
   });
 
-  console.log(allItems)
 
 
   return {
