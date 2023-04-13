@@ -10,7 +10,7 @@ export default function ShopAllPage(props) {
       style={{ display: "flex", justifyContent: "center", gap: "1rem" }}
     >
       <StoreMenu category={props.category} />
-      <StoreMain product={props.products}/>
+      <StoreMain product={props.products} isFilter={true}/>
     </div>
   );
 }

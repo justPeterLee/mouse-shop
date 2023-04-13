@@ -9,7 +9,7 @@ export default function StoreMenuLink({name, option, id}) {
         </button>
       </div>
       <div className={styles.linkOptions}>
-        {option.map((option)=>(
+        {option && option.map((option)=>(
           <MenuOption
           key={Math.random()}
           name={option.product_ref.product_name}
