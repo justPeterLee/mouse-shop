@@ -1,15 +1,10 @@
 import StoreMenu from "@/component/StoreMenu/StoreMenu";
-import StoreFilter from "@/component/StorePage/StoreFilter/StoreFilter";
 import StoreMain from "@/component/StorePage/StoreMain";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+
 export default function ShopAllPage(props) {
   const router = useRouter();
-  const catIdURL = router.query.filterCat;
 
-  useEffect(() => {
-    console.log(props);
-  });
   return (
     <div
       className="top-module"

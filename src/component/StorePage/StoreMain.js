@@ -1,20 +1,9 @@
 import styles from "./StoreMain.module.css";
 import StoreItem from "./StoreItem/StoreItem";
-import { useSelector, useDispatch } from "react-redux";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
+
+
 export default function StoreMain({ product, isFilter }) {
-  const dispatch = useDispatch();
-  const store = useSelector((store) => store.mainStore.mainStore);
-  const router = useRouter();
 
-  useEffect(() => {
-    console.log(product);
-  });
-
-  if (!store) {
-    return <p> loading </p>;
-  }
   return (
     <div className={styles.itemContainer}>
       {isFilter ? (
