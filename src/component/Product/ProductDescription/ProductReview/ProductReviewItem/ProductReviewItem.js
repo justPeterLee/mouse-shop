@@ -9,7 +9,7 @@ export default function ProductReviewItem({ title, rate, name, date, desc }) {
     setShowText(!showText);
   }
   useEffect(() => {
-    console.log(rateDesc.current.clientHeight);
+    
   }, []);
 
   return (
