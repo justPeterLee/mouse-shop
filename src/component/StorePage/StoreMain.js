@@ -3,15 +3,12 @@ import StoreItem from "./StoreItem/StoreItem";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-export default function StoreMain() {
+export default function StoreMain({product}) {
   const dispatch = useDispatch();
   const store = useSelector((store) => store.mainStore.mainStore);
   const router = useRouter();
   const { filterCat } = router.query;
 
-  useEffect(() => {
-    dispatch({ type: "FETCH_MAIN_PRODUCTS" });
-  }, []);
 
   if(!store){
     return <p> loading </p>
@@ -19,7 +16,7 @@ export default function StoreMain() {
   return (
 
       <div className={styles.itemContainer}>
-        {store.map((item) => {
+        {product.map((item) => {
           return (
             <StoreItem
               key={item.id}
