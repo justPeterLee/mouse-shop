@@ -1,8 +1,11 @@
 import styles from "./StoreMenuLink.module.css";
 import MenuOption from "./MenuOption/MenuOption";
+import { useRouter } from "next/router";
 export default function StoreMenuLink({name, option, id}) {
+  const router = useRouter();
+  
   const navigateHandler = () => {
-    
+
   }
   return (
     <div className={styles.linkContainer}>
