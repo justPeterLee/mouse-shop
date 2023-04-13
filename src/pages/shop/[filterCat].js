@@ -1,11 +1,8 @@
 import StoreMenu from "@/component/StoreMenu/StoreMenu";
 import StoreMain from "@/component/StorePage/StoreMain";
 import prisma from "lib/db";
-import { useRouter } from "next/router";
 
 export default function ShopAllPage(props) {
-  const router = useRouter();
-
   return (
     <div
       className="top-module"
@@ -19,7 +16,6 @@ export default function ShopAllPage(props) {
 
 export async function getStaticProps(context) {
   const { params } = context;
-  await prisma.$connect;
   const category = await prisma.product_category.findMany({
     select: {
       category_connection: {
@@ -63,7 +59,6 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   // connect to Db
-  await prisma.$connect;
 
   const ids = await prisma.product_category.findMany({
     select: {

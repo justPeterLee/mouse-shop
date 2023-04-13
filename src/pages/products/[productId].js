@@ -30,7 +30,6 @@ export async function getStaticProps(context){
 export async function getStaticPaths(){
     
     // connect to the database
-    await prisma.$connect;
 
 
     return {
