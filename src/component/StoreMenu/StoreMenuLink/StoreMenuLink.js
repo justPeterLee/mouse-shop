@@ -1,10 +1,13 @@
 import styles from "./StoreMenuLink.module.css";
 import MenuOption from "./MenuOption/MenuOption";
 export default function StoreMenuLink({name, option, id}) {
+  const navigateHandler = () => {
+    
+  }
   return (
     <div className={styles.linkContainer}>
       <div className={styles.linkTitle}>
-        <button className={styles.linkButton}>
+        <button className={styles.linkButton} onClick={navigateHandler}>
           <p>{name}</p>
         </button>
       </div>
